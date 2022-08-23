@@ -8,8 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "generate": "node ./serv/generate.js > ./serv/db.json",
-    "server": "json-server --watch ./serv/db.json",
-    "jenkins": "echo 'HEY HEY'"
+    "server": "json-server --watch ./serv/db.json"
   },
   "private": true,
   "dependencies": {
