@@ -1,0 +1,41 @@
+<div class="container">
+  <h1>{{product.name}}</h1>
+
+    <form [formGroup]="form" (ngSubmit)="submitForm(form)" class="form">
+      <mat-form-field appearance="legacy">
+        <mat-label>Nom</mat-label>
+        <input matInput maxlength="15" inputmode="tel" placeholder="{{product.name}}" formControlName="name" />
+        <mat-error>Nom est obligatoire</mat-error>
+        <mat-error *ngIf="form.controls['name'].errors?.['maxlength']">
+          Moins de 10 caractère svp
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>description:</mat-label>
+        <textarea matInput formControlName="description" placeholder="{{product.description}}"></textarea>
+            <mat-error *ngIf="form.controls['description'].errors?.['maxlength']">
+              Moins de 250 caractère svp
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+          <mat-label>Prix</mat-label>
+          <input matInput type="number" form.formControlName="prix" placeholder={{product.price}}/>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+          <mat-label>Quantitée</mat-label>
+          <input matInput type="number" form.formControlName="quantity" placeholder="Quantitée" />
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+          <mat-label>Image</mat-label>
+          <input matInpup inputmode="tel" placeholder="{{product.quantity}}" form.formControlName="imageUrl" />
+      </mat-form-field>
+
+        <div mat-dialog-actions align="end">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Submit</button>
+        </div>
+    </form>
+</div>
